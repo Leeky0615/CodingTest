@@ -26,14 +26,7 @@ def dfs(x,y):
         dfs(x+1, y)
         dfs(x, y+1)
         return True
-    # print_graph(graph)
     return False
-# def print_graph(graph):
-#     for i in range(n):
-#         for j in range(m):
-#             print(graph[i][j], end='')
-#         print()
-#     print('--------')
 
 # N, M을 공백을 기준으로 구분하여 입력 받기
 n, m = map(int, input().split())
