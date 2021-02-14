@@ -20,3 +20,22 @@
     출력 예시
     2
 '''
+
+# n = int(input())
+n = 7
+# array = list(map(int, input().split()))
+array = [15, 11, 4, 8, 5, 2, 4]
+# 문제는 가장 긴 감소하는 부분 수열이기 떄문에 LIS를 사용하기 위해 뒤집어줌
+array.reverse()
+
+# 다이나믹 프로그래밍에 사용되는 배열
+dp = [1] * n
+
+# 가장 긴 증가하는 부분 수열 알고리즘
+for i in range(1, n):
+    for j in range(0, i):
+        if array[j] < array[i]:
+            dp[i] = max(dp[i], dp[j] + 1)
+
+# 열외해야 하는 병사의 최소 수를 출력
+print(n - max(dp))
