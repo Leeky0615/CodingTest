@@ -1,1 +1,4 @@
-print(round(float(input()), 2))
+LOG = 21  # 2^20 = 1,000,000
+
+a = 1 << 4
+print(a)
