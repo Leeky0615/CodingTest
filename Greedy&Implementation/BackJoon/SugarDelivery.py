@@ -19,10 +19,10 @@
     출력 예제
     4            | -1
 '''
-
 n = int(input())
 
 result = n // 5
+
 for i in range(result, -1, -1):
     k = n - (i * 5)
     if k % 3 == 0:
@@ -31,7 +31,4 @@ for i in range(result, -1, -1):
     else:
         result -= 1
 
-if result < 0:
-    print(-1)
-else:
-    print(result)
+print(result)
