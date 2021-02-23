@@ -158,6 +158,7 @@ print(result)
     데이터의 조회 및 수정에 있어서 상수 시간 복잡도 O(1)
 """
 data = dict()
+
 data['사과'] = 'Apple'
 data['바나나'] = 'Banana'
 data['코코넛'] = 'Coconut'

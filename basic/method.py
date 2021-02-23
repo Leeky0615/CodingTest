@@ -80,12 +80,13 @@ print(a, b)
 print("람다표현식을 사용한 더하기 함수 : ", (lambda a, b: a + b)(3, 8))
 
 # 많이 사용되는 람다 표현식
-array = [('a', 40), ('b', 32), ('c', 23)]
-
+array = [('a', 40), ('bas', 32), ('c', 23)]
+arr = ['asd','sd','wqwds']
 
 def my_key(x):
     return x[1]
-print(sorted(array, key=my_key))
+arr.sort(reverse=True, key=lambda  x: len(x))
+print(arr)
 print(sorted(array, key=lambda x: x[1]))
 
 list1 = [1,2,3,4,5]
