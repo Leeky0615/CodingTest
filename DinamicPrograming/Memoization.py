@@ -14,14 +14,16 @@
      개념을 의미한다. 따라서 메모이제이션은 다이나믹 프로그래밍에 국한된 개념은 아니며
      한 번 계산된 결과를 담아 놓기만 하고 다이나믹 프로그래밍을 위해 활용하지 않을 수 있다.
 '''
+import time
+
+# 다이나믹 프로그래밍 성능 측정
+start_time = time.time()
 
 # 한 번 계산된 결과를 메모이제이션하기 위한 리스트 초기화
 d = [0] * 100
 
-
 # 피보나치 함수를 재귀함수로 구현(탑다운)
 def fibo(x):
-    print('f(' + str(x) + ')', end='')
     # 종료 조건(1혹은 2일때 1을 반환)
     if x == 1 or x == 2:
         return 1
@@ -32,15 +34,29 @@ def fibo(x):
     d[x] = fibo(x - 1) + fibo(x - 2)
     return d[x]
 
+print('fibo(99):',fibo(99))
 
-print(fibo(6))
+# 측정 종료
+end_time = time.time()
+# 수행 시간 출력
+print("다이나믹 프로그래밍(탑다운 방식) 성능 측정 : ", end_time - start_time)
+
+
+# 다이나믹 프로그래밍 성능 측정
+start_time = time.time()
 
 # 바텀업 방식
-d[1] = 1
-d[2] = 1
+d[1] = 1 # a1
+d[2] = 1 # a2
 n = 99
 
 for i in range(3, n + 1):
     d[i] = d[i - 1] + d[i - 2]
 
-print(d[n])
+
+print('fibo(99):',d[n])
+
+# 측정 종료
+end_time = time.time()
+# 수행 시간 출력
+print("다이나믹 프로그래밍(바텀업 방식) 성능 측정 : ", end_time - start_time)

@@ -58,7 +58,7 @@ def fibo(x):
         return 1
     return fibo(x - 1) + fibo(x - 2)
 
-print(fibo(30))
+print('fibo(35):',fibo(35))
 
 # 측정 종료
 end_time = time.time()
