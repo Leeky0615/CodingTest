@@ -20,7 +20,7 @@ import time
 start_time = time.time()
 
 # 한 번 계산된 결과를 메모이제이션하기 위한 리스트 초기화
-d = [0] * 100
+d = [0] * 1001
 
 # 피보나치 함수를 재귀함수로 구현(탑다운)
 def fibo(x):
@@ -47,15 +47,17 @@ start_time = time.time()
 
 # 바텀업 방식
 d[1] = 1 # a1
-d[2] = 1 # a2
-n = 99
+d[2] = 2 # a2
+n = 1000
 
 for i in range(3, n + 1):
-
     d[i] = d[i - 1] + d[i - 2]
 
 
 print('fibo(99):',d[n])
+
+if d[1000] % 10007 == (d[999] + d[998]) % 10007:
+    print(True)
 
 # 측정 종료
 end_time = time.time()
