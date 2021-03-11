@@ -32,25 +32,29 @@
 '''
 
 
+# dfs함수 선언
 def dfs(x):
-    visited[x] = True
-    for i in graph[x]:
-        if not visited[i]:
-            dfs(i)
+    visited[x] = True  # 정점 x를 방문 처리한다.
+    for i in graph[x]:  # 정점 x와 연결된 모든 정점 확인
+        if not visited[i]:  # 방문하지 않았다면,
+            dfs(i)  # 해당 정점을 다시 탐색한다.
 
 
-n, m = map(int, input().split())
-arr = [list(map(int, input().split())) for _ in range(m)]
-graph = [[] for _ in range(n + 1)]
-visited = [False] * (n + 1)
-count = 0
+n, m = map(int, input().split())  # 정점의 수(n), 간선의 수(m)를 입력
+arr = [list(map(int, input().split())) for _ in range(m)]  # 간선의 양끝점 정보 입력
+graph = [[] for _ in range(n + 1)]  # 그래프 리스트 초기화
+visited = [False] * (n + 1)  # 방문 기록 리스트 초기화
+count = 0  # 연결 요소 개수 초기화
+
+# 양끝점 정보를 graph 리스트(2차원)로 바꿈
 for i in arr:
     graph[i[0]].append(i[1])
     graph[i[1]].append(i[0])
 
+# 정점의 개수 만큼 반복
 for i in range(1, n + 1):
-    if not visited[i]:
-        dfs(i)
-        count += 1
+    if not visited[i]:  # 방문하지 않았다면
+        dfs(i)  # dfs 수행
+        count += 1  # 연결 요소 개수 추가
 
-print(count)
+print(count)  # 연결 요소 개수 출력
